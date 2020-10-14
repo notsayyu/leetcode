@@ -61,8 +61,8 @@ public class KMP {
     }
 
     public static void main(String[] args) {
-        String son = "ABABCC";
-        String father = "ABABEABABCABABA";
+        String son = "ABABC";
+        String father = "ABABEABABABABCBA";
         KMP kmp = new KMP(son);
         int[][] dp = kmp.dp;
         System.out.println(kmp.search(father));

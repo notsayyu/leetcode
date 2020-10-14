@@ -33,6 +33,31 @@ public class KMP2 {
         return next;
     }
 
+    public static int[] getNextVal(String son) {
+        int i = 0, j = -1;
+        int[] nextVal = new int[son.length()];
+        nextVal[0] = -1;
+        while (i < son.length() - 1) {
+            if (j == -1 || son.charAt(i) == son.charAt(j)) {
+                i++;
+                j++;
+                // 这里是改良的地方
+                if (son.charAt(i) != son.charAt(j)) {
+                    // 若当前字符与前缀字符不同，则当前的 j 为nextVal在 i 位置的值
+                    nextVal[i] = j;
+                } else {
+                    //若当前字符与前缀字符相同，则将前缀字符的nextVal的值赋给nextVal在i位置的值
+                    nextVal[i] = nextVal[j];
+                }
+
+            } else {
+                j = nextVal[j];
+            }
+        }
+        return nextVal;
+
+    }
+
     /**
      * KMP算法
      */
@@ -90,8 +115,8 @@ public class KMP2 {
     }
 
     public static void main(String[] args) {
-        String pat = "abcdabcdcab";
-        int[] next = getNext(pat);
+        String pat = "ababaaaba";
+        int[] next = getNextVal(pat);
         for (int i : next) {
             System.out.println(i);
         }

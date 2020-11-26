@@ -1,7 +1,6 @@
 package subjects.medium;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @description: 二叉树：
@@ -48,6 +47,35 @@ public class M144 {
         list.add(root.val);
         exec(root.left, list);
         exec(root.right, list);
+
+    }
+
+    public static void main(String[] args) {
+//        Map<String,Object> hashMap = new HashMap<>(16);
+//        for(int i=0;i<10000;i++){
+//            hashMap.put(i+"",i);
+//        }
+//        for(Map.Entry entry : hashMap.entrySet()){
+//            System.out.println("key:"+entry.getKey()+",value:"+entry.getValue());
+//        }
+
+        Map<String, Object> linkedHashMap = new LinkedHashMap<>(16);
+        for (int i = 0; i < 10; i++) {
+            linkedHashMap.put(i + "", i);
+        }
+        for (Map.Entry entry : linkedHashMap.entrySet()) {
+            System.out.println("key:" + entry.getKey() + ",value:" + entry.getValue());
+        }
+
+        System.out.println("============================");
+
+        // 使用的是迭代器 ListIterator
+        ListIterator<Map.Entry> i = new ArrayList<Map.Entry>(linkedHashMap.entrySet()).listIterator(linkedHashMap.size());
+        while (i.hasPrevious()) {
+            Map.Entry entry = i.previous();
+            System.out.println("key:" + entry.getKey() + ",value:" + entry.getValue());
+        }
+
 
     }
 }

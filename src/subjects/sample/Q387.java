@@ -31,7 +31,23 @@ public class Q387 {
         return -1;
     }
 
+    public static int firstUniqChar2(String s) {
+        int[] arr = new int[26];
+        char[] chars = s.toCharArray();
+        int n = s.length();
+        for (int i = 0; i < n; i++) {
+            arr[chars[i] - 'a']++;
+        }
+        for (int i = 0; i < n; i++) {
+            if (arr[chars[i] - 'a'] == 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
     public static void main(String[] args) {
-        System.out.println(firstUniqChar1("loveleetcode"));
+        System.out.println(firstUniqChar2("leetcode"));
     }
 }

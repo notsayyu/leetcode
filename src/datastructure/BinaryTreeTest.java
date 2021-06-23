@@ -17,7 +17,8 @@ public class BinaryTreeTest {
         }
 
 //        preOrder(root);
-        postOrder(root);
+        inOrder(root);
+//        postOrder(root);
     }
 
 

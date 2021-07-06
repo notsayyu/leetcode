@@ -9,6 +9,11 @@ import java.util.LinkedList;
  */
 public class MyQueue<E> {
     private LinkedList<E> list = new LinkedList<>();
+    public int size;
+
+    public MyQueue() {
+        this.size = 0;
+    }
 
     /**
      * 入队
@@ -16,13 +21,18 @@ public class MyQueue<E> {
      * @param e
      */
     public void enqueue(E e) {
+        if(e == null){
+            return;
+        }
         list.addFirst(e);
+        size ++;
     }
 
     /**
      * 出队
      */
     public E dequeue() {
+        size --;
         return list.removeLast();
     }
 }

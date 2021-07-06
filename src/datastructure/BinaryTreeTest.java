@@ -18,7 +18,12 @@ public class BinaryTreeTest {
 
 //        preOrder(root);
         inOrder(root);
+        System.out.println("====");
+        inOrderStack(root);
+        System.out.println("====");
+        levelOrder(root);
 //        postOrder(root);
+
     }
 
 
@@ -49,6 +54,27 @@ public class BinaryTreeTest {
     }
 
     /**
+     * 中序遍历堆栈方式
+     */
+    public static void inOrderStack(BinaryTree root){
+        MyStack<BinaryTree> stack = new MyStack();
+
+        while (root != null || stack.size > 0){
+            while (root != null){
+                stack.enStack(root);
+                root = root.left;
+            }
+            if(stack.size > 0){
+                root = stack.deStack();
+                System.out.print(root.data);
+                System.out.print(" ");
+                root = root.right;
+            }
+        }
+
+    }
+
+    /**
      * 后序遍历 若二叉树为空，则空操作，否则先后序遍历左子树访问根节点，再后序遍历右子树，最后访问根节点。
      */
     public static void postOrder(BinaryTree root) {
@@ -59,6 +85,21 @@ public class BinaryTreeTest {
         postOrder(root.right);
         System.out.print(root.data);
         System.out.print(" ");
+    }
+
+    /**
+     * 层序遍历，使用队列
+     */
+    public static void levelOrder(BinaryTree root){
+        MyQueue<BinaryTree> queue = new MyQueue();
+        queue.enqueue(root);
+        while (queue.size > 0){
+            root = queue.dequeue();
+            System.out.print(root.data);
+            System.out.print(" ");
+            queue.enqueue(root.left);
+            queue.enqueue(root.right);
+        }
     }
 
 

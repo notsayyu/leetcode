@@ -10,6 +10,12 @@ import java.util.LinkedList;
 public class MyStack<E> {
     private LinkedList<E> list = new LinkedList<>();
 
+    public int size;
+
+    public MyStack() {
+        this.size = 0;
+    }
+
     /**
      * 入栈
      *
@@ -17,12 +23,14 @@ public class MyStack<E> {
      */
     public void enStack(E e) {
         list.addFirst(e);
+        size ++;
     }
 
     /**
      * 出栈
      */
     public E deStack() {
+        size --;
         return list.removeFirst();
     }
 }

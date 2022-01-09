@@ -28,7 +28,7 @@ public class BinaryTreeTest {
 
 
     /**
-     * 先序遍历 若二叉树为空，则空操作，否则先访问根节点，再先序遍历左子树，最后先序遍历右子树
+     * 先序遍历(中左右) 若二叉树为空，则空操作，否则先访问根节点，再先序遍历左子树，最后先序遍历右子树
      */
     public static void preOrder(BinaryTree root) {
         if (root == null) {
@@ -41,7 +41,7 @@ public class BinaryTreeTest {
     }
 
     /**
-     * 中序遍历，若二叉树为空，则空操作，否则先中序遍历左子树，再访问根节点，最后中序遍历右子树。
+     * 中序遍历（左中右），若二叉树为空，则空操作，否则先中序遍历左子树，再访问根节点，最后中序遍历右子树。
      */
     public static void inOrder(BinaryTree root) {
         if (root == null) {
@@ -75,7 +75,7 @@ public class BinaryTreeTest {
     }
 
     /**
-     * 后序遍历 若二叉树为空，则空操作，否则先后序遍历左子树访问根节点，再后序遍历右子树，最后访问根节点。
+     * 后序遍历（左右中） 若二叉树为空，则空操作，否则先后序遍历左子树访问根节点，再后序遍历右子树，最后访问根节点。
      */
     public static void postOrder(BinaryTree root) {
         if (root == null) {

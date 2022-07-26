@@ -1,7 +1,7 @@
 package datastructure.sort;
 
 /**
- * @description:
+ * @description: 归并排序
  * @author: dsy
  * @date: 2022/7/21 13:40
  */

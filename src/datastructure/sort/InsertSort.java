@@ -1,7 +1,7 @@
 package datastructure.sort;
 
 /**
- * @description:
+ * @description: 插入排序
  * @author: dsy
  * @date: 2022/7/19 10:36
  */
@@ -27,6 +27,10 @@ public class InsertSort implements Sorter {
             }
             arr[j + 1] = tmp;
         }
+    }
+
+    private static void mySort(int[] arr) {
+
     }
 
     public static void main(String[] args) {

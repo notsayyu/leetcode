@@ -48,10 +48,31 @@ public class SelectSort implements Sorter {
 
     }
 
+    private static void mySort(int[] arr) {
+        if (arr == null || arr.length <= 1) {
+            return;
+        }
+        //目前选择从左到右、从小到大依次排序
+        for (int i = 0; i < arr.length - 1; i++) {
+            //每次对比都记录下最小值的下标，最后与当前循环到的位置i进行交换
+            int min = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[min] > arr[j]) {
+                    min = j;
+                }
+            }
+            if (min != i) {
+                int tmp = arr[min];
+                arr[min] = arr[i];
+                arr[i] = tmp;
+            }
+        }
+
+    }
+
     public static void main(String[] args) {
-        int[] arr = {4, 7, 1, 3, 9, 0};
-        Sorter sorter = new SelectSort();
-        sorter.sort(arr);
+        int[] arr = {4, 7, 1, 3, 9, 0, 8, 5, 20};
+        mySort(arr);
         for (int i : arr) {
             System.out.println(i);
         }

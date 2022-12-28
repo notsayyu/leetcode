@@ -7,11 +7,5 @@ package datastructure.sort;
  */
 public interface Sorter {
 
-    /**
-     * 数组排序
-     *
-     * @param arr
-     * @return
-     */
-    public void sort(int[] arr);
+    void sort(int[] arr);
 }
